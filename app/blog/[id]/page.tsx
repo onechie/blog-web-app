@@ -7,14 +7,14 @@ import Navbar from "@/components/ui/navbar";
 
 export default function BlogPostPage() {
   const params = useParams();
-  const blogId = params.id as string;
+  const { id } = params;
 
   const [blog, setBlog] = useState<Blog>();
   const [message, setMessage] = useState<string>("Loading...");
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchBlog(blogId);
+      const data = await fetchBlog(id as string);
       if (data.success) {
         setBlog(data.data);
         return;
@@ -22,7 +22,7 @@ export default function BlogPostPage() {
       setMessage(data.message);
     };
     fetchData();
-  }, [blogId]);
+  }, [id]);
   return (
     <div className="bg-gray-50">
       <Navbar title={"Blog"} />
