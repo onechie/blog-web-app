@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { fetchBlogs, deleteBlog, Blog } from "@/app/lib/actions/blog-actions";
+import { fetchBlogs, Blog } from "@/app/lib/actions/blog-actions";
 import Navbar from "@/components/ui/navbar";
 import BlogCard from "@/components/features/dashboard/blog-card";
 import Pagination from "@/components/ui/pagination";

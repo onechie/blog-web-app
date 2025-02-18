@@ -1,3 +1,4 @@
+"use client"
 type Pagination = {
   items_per_page: number;
   items: any[];

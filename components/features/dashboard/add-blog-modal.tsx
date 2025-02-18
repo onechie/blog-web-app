@@ -1,3 +1,4 @@
+"use client"
 import { createBlog, updateBlog } from "@/app/lib/actions/blog-actions";
 import Button from "@/components/ui/button";
 type BlogModal = {

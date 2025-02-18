@@ -1,3 +1,4 @@
+"use client"
 type Button = {
   variant?: "light";
   text: string;
