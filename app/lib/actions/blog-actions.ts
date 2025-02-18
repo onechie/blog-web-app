@@ -19,9 +19,8 @@ export async function fetchPublicBlogs(): Promise<Blog[]> {
   const supabase = createClient();
   const { data: blogs, error } = await supabase
     .from("blogs")
-    .select(
-      "id, title, content, created_at, updated_at, authors(display_name)"
-    );
+    .select("id, title, content, created_at, updated_at, authors(display_name)")
+    .order("created_at", { ascending: false });
   if (error) console.error("Error fetching blogs:", error.message);
   return blogs || [];
 }
@@ -51,7 +50,8 @@ export async function fetchBlogs(): Promise<Blog[]> {
   const { data: blogs, error } = await supabase
     .from("blogs")
     .select("*")
-    .eq("user_id", user.id);
+    .eq("user_id", user.id)
+    .order("created_at", { ascending: false });
 
   if (error) console.error("Error fetching user blogs:", error.message);
   return blogs || [];
